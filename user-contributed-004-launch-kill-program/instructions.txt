@@ -1,0 +1,36 @@
+---------------------------------------------------------------------
+HOW TO LAUNCH A PROGRAM ON VPN CONNECTION AND CLOSE IT ON DISCONNECT
+---------------------------------------------------------------------
+
+These instructions use the provided connected.sh, post-disconnect.sh, and reconnecting.sh scripts. The scripts must be modified to indicate the desired application, and connected.sh must also indicate the logged-in username. 
+
+For example, to launch Transmission on connection, change the command in connected.sh from
+
+sudo -u USERNAME open /path/to/application.app/
+
+to 
+
+sudo -u myusername open /Applications/Transmission.app/
+
+Similarly, to close Transmission on disconnect, in post-disconnect.sh and reconnecting.sh, change the kill process command from
+
+pkill application
+
+to
+
+pkill Transmission
+
+To create an installable Tunnelblick VPN connection file that launches the program on connection and closes the program on disconnect:
+
+1. Create folder with desired VPN name.
+
+2. Put the .ovpn file (with same name as the folder) in the folder.
+
+3. Put the scripts into the folder:
+- connected.sh (runs when VPN is connected)
+- post-disconnect.sh (runs when VPN is disconnected)
+- reconnecting.sh (runs when VPN is trying to re-connect)
+
+4. Rename the folder to have a .tblk extension.
+
+5. Double-click the new .tblk file to install it into Tunnelblick.
