@@ -1,0 +1,3 @@
+[submodule "osx-openvpn-server"]
+	path = osx-openvpn-server
+	url = https://github.com/essandess/osx-openvpn-server
